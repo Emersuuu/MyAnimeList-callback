@@ -95,14 +95,15 @@
 
         <div class="step">
             <div class="step-num">1</div>
-            <div>No Discord, digite <strong>/mal-vincular</strong> e selecione o comando</div>
+            <div>Clique no botão abaixo para copiar o código</div>
         </div>
+
+        <div class="command-box" id="cmd-display" onclick="copiar()">Carregando…</div>
 
         <div class="step">
             <div class="step-num">2</div>
-            <div>No campo <strong>dados</strong>, cole o código abaixo e pressione Enter</div>
+            <div>No Discord, use <strong>/mal-vincular</strong> e cole o código no campo <strong>code</strong></div>
         </div>
-        <div class="command-box" id="cmd-display" onclick="copiar()">Carregando…</div>
 
         <button class="btn" id="copy-btn" onclick="copiar()">📋 Copiar código</button>
         <div class="success-msg" id="success-msg">✅ Copiado! Cole no Discord agora.</div>
@@ -133,12 +134,12 @@
                     'O MAL retornou um erro: "' + err + '". Use /mal-login novamente.';
             }
         } else {
-            document.getElementById('cmd-display').textContent = code + ' ' + state;
+            document.getElementById('cmd-display').textContent = code;
         }
 
         function copiar() {
             if (!code || !state) return;
-            const texto = code + ' ' + state;
+            const texto = code;
             navigator.clipboard.writeText(texto).then(mostrarSucesso).catch(() => {
                 const el = document.createElement('textarea');
                 el.value = texto;
